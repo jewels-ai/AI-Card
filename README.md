@@ -1,1 +1,1 @@
-# AI-Card
+# card
