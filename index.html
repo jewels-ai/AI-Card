@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AR Video Try-On</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   <style>
@@ -118,6 +120,23 @@
         videoEl.pause();
         isPlaying = false;
         toggleButton.textContent = "▶️ Play Video";
+      }
+    });
+
+    /* 🚫 Disable Right-click */
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    /* 🚫 Disable Inspect Element & Common Dev Shortcuts */
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "F12" || 
+        (e.ctrlKey && e.shiftKey && e.key === "I") || 
+        (e.ctrlKey && e.shiftKey && e.key === "J") || 
+        (e.ctrlKey && e.key === "u") || 
+        (e.ctrlKey && e.shiftKey && e.key === "C")
+      ) {
+        e.preventDefault();
+        alert("🚫 Action Disabled!");
       }
     });
   </script>
